@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Registration Form</title>
+</head>
+<body ng-app="">
+    <div class="form_wrapper">
+        <div class="form_container">
+          <div class="title_container">
+            <h2>Responsive Registration Form</h2>
+          </div>
+          <div class="row clearfix">
+            <div class="">
+              <form>
+                <div class="input_field" ng-hide="toShow"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                <input type="email" ng-hide="toShow" name="email" placeholder="Email" required ng-readonly="checked"/>
+                <br>
+                </div>
+                <br>
+                <input class="button" ng-hide="toShow" type="submit" value="Check Email" ng-click="toShow = true"/>
+                <div ng-show="toShow">
+                    Email Valid! 
+                    <br>
+                    <input type="button" ng-click="toShow = false" value="Go Back"/>
+                </div>
+                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                  <input type="password" name="password" placeholder="Password" required ng-disabled="disable" ng-readonly="checked"/>
+                </div>
+                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                  <input type="password" name="password" placeholder="Re-type Password" ng-model="disable" required ng-readonly="checked"/>
+                </div>
+                <div class="row clearfix">
+                  <div class="col_half">
+                    <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                      <input type="text" name="name" placeholder="First Name"required ng-readonly="checked"/>
+                    </div>
+                  </div>
+                  <div class="col_half">
+                    <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                      <input type="text" name="name" placeholder="Last Name" required ng-readonly="checked"/>
+                    </div>
+                  </div>
+                </div>
+                      <div class="input_field radio_option">
+                    <input type="radio" name="radiogroup1" id="rd1" ng-readonly="checked">
+                    <label for="rd1">Male</label>
+                    <input type="radio" name="radiogroup1" id="rd2" ng-readonly="checked">
+                    <label for="rd2">Female</label>
+                    </div>
+                    <div class="input_field checkbox_option">
+                        <input type="checkbox" id="cb2" ng-model="checked">
+                        <label for="cb2">Finalize Registration</label>
+                    </div>
+                  <div class="input_field checkbox_option">
+                      <input type="checkbox" id="cb1" ng-model="registered" ng-init="registered=false">
+                      <label for="cb1">I agree with terms and conditions</label>
+                  </div>
+                    <input class="button" type="submit" value="Register" ng-if="registered"/>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
